@@ -1,0 +1,6 @@
+AUTH_SECRET=changeme_dev_secret_123
+AUTH_GOOGLE_ID=placeholder_id
+AUTH_GOOGLE_SECRET=placeholder_secret
+ALLOWED_EMAILS=user@example.com
+NEXT_PUBLIC_ADMIN_PATH=/secret-dashboard
+SKIP_AUTH=true

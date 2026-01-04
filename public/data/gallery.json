@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "title": "Natural Bob",
+    "description": "手櫛でまとまる、大人のナチュラルボブ",
+    "image": "/images/generated/gallery_bob.png"
+  },
+  {
+    "id": "2",
+    "title": "Long Layer",
+    "description": "動きのある毛先が軽やかなロングレイヤー",
+    "image": "/images/generated/gallery_long.png"
+  },
+  {
+    "id": "3",
+    "title": "Chic Short",
+    "description": "骨格を美しく魅せる、洗練ショートヘア",
+    "image": "/images/generated/gallery_short.png"
+  },
+  {
+    "id": "4",
+    "title": "Olive Beige",
+    "description": "赤みを抑えた透明感カラー",
+    "image": "/images/generated/gallery_olive.png"
+  },
+  {
+    "id": "5",
+    "title": "Soft Perm",
+    "description": "外国人のくせ毛のような柔らかパーマ",
+    "image": "/images/generated/gallery_perm.png"
+  },
+  {
+    "id": "6",
+    "title": "Mode Arrange",
+    "description": "特別な日のための、タイトなヘアアレンジ",
+    "image": "/images/generated/gallery_arrange.png"
+  }
+]

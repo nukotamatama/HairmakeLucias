@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "name": "Sakura Tanaka",
+    "role": "Top Stylist",
+    "image": "/images/generated/staff_sakura.png",
+    "message": "お客様の髪質やクセを活かした、お手入れしやすいスタイル創りが得意です。毎日のスタイリングが楽しくなるようなご提案をさせていただきます。リラックスした時間をお過ごしください。"
+  },
+  {
+    "id": "2",
+    "name": "Kenji Sato",
+    "role": "Director",
+    "image": "/images/generated/staff_kenji.png",
+    "message": "トレンドを取り入れつつも、お客様ご自身の魅力を最大限に引き出すスタイルをご提案します。髪のお悩みだけでなく、頭皮ケアについてもお気軽にご相談ください。"
+  },
+  {
+    "id": "3",
+    "name": "Yuki Yamamoto",
+    "role": "Stylist",
+    "image": "/images/generated/staff_yuki.png",
+    "message": "透明感のあるカラーや、ニュアンスのあるパーマスタイルが得意です。丁寧なカウンセリングで、なりたいイメージを共有しながら施術させていただきます。"
+  }
+]

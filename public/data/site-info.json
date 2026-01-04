@@ -1,0 +1,67 @@
+{
+  "heroImages": [
+    {
+      "id": "intro-1",
+      "url": "/images/hero_slide_1.png"
+    },
+    {
+      "id": "intro-2",
+      "url": "/images/hero_slide_2.png"
+    },
+    {
+      "id": "intro-3",
+      "url": "/images/hero_slide_3.png"
+    }
+  ],
+  "concept": {
+    "title": "静寂と、\n美しさ。",
+    "subtitle": "日常に\n洗練された\n余白を。",
+    "description": "都会の喧騒を忘れさせる、静謐な空間。\n髪を整えるだけでなく、心まで解きほぐすような特別な時間をご提供します。\n\n一人ひとりの骨格や髪質に合わせた、\n再現性の高いナチュラルなスタイル。\n\n「余白」を楽しむ、大人のためのプライベートサロンです。"
+  },
+  "access": {
+    "salonName": "Hairmake Lucias",
+    "postalCode": "xxx-xxxx",
+    "address": "群馬県前橋市ＸＸＸＸＸＸＸＸＸＸＸ",
+    "tel": "xxx-xxxx-xxxx",
+    "open": {
+      "weekday": "11:00 - 20:00",
+      "weekend": "10:00 - 19:00",
+      "close": "火曜日・第3月曜日"
+    },
+    "reservationUrl": "https://example.com/reserve",
+    "menuCategories": [
+      "Cut",
+      "Color",
+      "Perm",
+      "Treatment",
+      "Spa",
+      "Other"
+    ]
+  },
+  "salonSpace": {
+    "title": "Salon Space",
+    "description": "日常の喧騒を忘れさせる、落ち着いた空間。\n周りを気にせず、\n心からくつろげるひとときをお過ごしいただけます。\n\n木の温もりと柔らかな自然光に包まれた\n癒やしの時間をご提供します。",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1000&auto=format&fit=crop",
+        "alt": "Main Cutting Area"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1000&auto=format&fit=crop",
+        "alt": "Relaxing Chair"
+      },
+      {
+        "src": "/images/generated/space_detail.png",
+        "alt": "Interior Detail"
+      }
+    ]
+  },
+  "menuCategories": [
+    "Color",
+    "Cut",
+    "Perm",
+    "Treatment",
+    "Spa",
+    "Other"
+  ]
+}
