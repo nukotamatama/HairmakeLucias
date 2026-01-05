@@ -36,7 +36,7 @@ export function SalonSpace({ data }: { data?: SalonSpaceData }) {
     const img3 = images[2] || { src: "", alt: "" };
 
     return (
-        <section ref={sectionRef} className="py-24 md:py-40 bg-stone-50 overflow-hidden">
+        <section id="space" ref={sectionRef} className="py-24 md:py-40 bg-stone-50 overflow-hidden">
             <div className="container mx-auto px-6 max-w-6xl">
 
                 <div className="flex flex-col md:flex-row gap-16 md:gap-24 items-center">

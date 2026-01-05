@@ -4,7 +4,11 @@ import { Button } from "@/components/ui/button";
 export function Header({ salonName, tel }: { salonName?: string, tel?: string }) {
     const navItems = [
         { label: "コンセプト", sub: "CONCEPT", href: "#concept" },
+        { label: "ギャラリー", sub: "GALLERY", href: "#gallery" },
+        { label: "スタッフ", sub: "STAFF", href: "#staff" },
         { label: "メニュー", sub: "MENU", href: "#menu" },
+        { label: "スペース", sub: "SPACE", href: "#space" },
+        { label: "Q&A", sub: "FAQ", href: "#faq" },
         { label: "アクセス", sub: "ACCESS", href: "#access" },
     ];
 

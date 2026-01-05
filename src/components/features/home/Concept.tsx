@@ -31,7 +31,7 @@ export function Concept({ data }: { data?: ConceptData }) {
 「余白」を楽しむ、大人のためのプライベートサロンです。`;
 
     return (
-        <section ref={sectionRef} className="py-24 md:py-40 bg-stone-50 overflow-hidden relative">
+        <section id="concept" ref={sectionRef} className="py-24 md:py-40 bg-stone-50 overflow-hidden relative">
             {/* Background decoration (Zen circle or subtle shadow) */}
             <div className="absolute top-1/4 -left-20 w-64 h-64 bg-stone-200/30 rounded-full blur-3xl pointer-events-none mix-blend-multiply" />
 
