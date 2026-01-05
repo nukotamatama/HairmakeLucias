@@ -4,6 +4,7 @@ import { useAdmin } from "./AdminContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 import Image from "next/image";
 
 type GalleryItem = {
@@ -110,28 +111,47 @@ export function GalleryEditor() {
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {items && items.map((item) => (
-                            <SortableItem key={item.id} id={item.id} className="border p-4 rounded-lg bg-white space-y-4">
-                                <div className="relative aspect-[3/4] bg-stone-100 rounded overflow-hidden group">
-                                    <Image src={item.image} alt={item.title} fill className="object-cover" />
-                                    <label className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer text-white text-sm font-bold">
-                                        画像を変更
-                                        <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, item.id)} />
-                                    </label>
-                                </div>
-                                <div className="space-y-2">
-                                    <Input
-                                        value={item.title}
-                                        onChange={(e) => handleChange(item.id, 'title', e.target.value)}
-                                        placeholder="スタイル名"
-                                    />
-                                    <Textarea
-                                        value={item.description}
-                                        onChange={(e) => handleChange(item.id, 'description', e.target.value)}
-                                        placeholder="説明文"
-                                    />
-                                </div>
-                                <div className="flex justify-between items-center pt-2">
-                                    <button type="button" className="text-xs font-bold text-white bg-red-400 hover:bg-red-500 px-3 py-1.5 rounded shadow-sm transition-all cursor-pointer flex items-center gap-1" onClick={(e) => deleteItem(e, item.id)}>✕ 削除</button>
+                            <SortableItem key={item.id} id={item.id}>
+                                <div className="p-4 space-y-4">
+                                    <div className="aspect-[3/4] w-full bg-stone-100 rounded-lg overflow-hidden relative group border border-stone-200">
+                                        <Image src={item.image} alt={item.title} fill className="object-cover transition-transform group-hover:scale-105" />
+                                        <label className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center cursor-pointer text-white">
+                                            <span className="font-bold text-sm">画像を変更</span>
+                                            <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, item.id)} />
+                                        </label>
+                                    </div>
+
+                                    <div className="space-y-3">
+                                        <div>
+                                            <Label className="text-xs text-stone-500 font-bold mb-1 block">スタイル名</Label>
+                                            <Input
+                                                className="bg-stone-50 border-stone-200"
+                                                value={item.title}
+                                                onChange={(e) => handleChange(item.id, 'title', e.target.value)}
+                                                placeholder="スタイル名"
+                                            />
+                                        </div>
+                                        <div>
+                                            <Label className="text-xs text-stone-500 font-bold mb-1 block">説明</Label>
+                                            <Textarea
+                                                className="bg-stone-50 border-stone-200 h-20 text-xs"
+                                                value={item.description}
+                                                onChange={(e) => handleChange(item.id, 'description', e.target.value)}
+                                                placeholder="スタイルの説明"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-end pt-2 border-t border-stone-100">
+                                        <Button
+                                            variant="ghost"
+                                            size="sm"
+                                            onClick={(e) => deleteItem(e, item.id)}
+                                            className="text-red-400 hover:text-red-500 hover:bg-red-50 text-xs h-8"
+                                        >
+                                            削除する
+                                        </Button>
+                                    </div>
                                 </div>
                             </SortableItem>
                         ))}

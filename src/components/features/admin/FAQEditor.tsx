@@ -92,28 +92,36 @@ export function FAQEditor() {
                 >
                     <div className="space-y-4">
                         {items && items.map((item) => (
-                            <SortableItem key={item.id} id={item.id} className="bg-white border rounded p-4">
-                                <div className="space-y-4">
-                                    <Input
-                                        value={item.question}
-                                        onChange={(e) => handleChange(item.id, 'question', e.target.value)}
-                                        placeholder="質問"
-                                        className="font-bold"
-                                    />
-                                    <Textarea
-                                        value={item.answer}
-                                        onChange={(e) => handleChange(item.id, 'answer', e.target.value)}
-                                        placeholder="回答"
-                                    />
-                                    <div className="flex justify-end">
-                                        <button
-                                            type="button"
-                                            className="text-xs font-bold text-white bg-red-400 hover:bg-red-500 px-3 py-1.5 rounded shadow-sm transition-all cursor-pointer flex items-center gap-1"
-                                            onPointerDown={(e) => e.stopPropagation()} // Stop drag start
+                            <SortableItem key={item.id} id={item.id}>
+                                <div className="p-4 pr-6 space-y-4">
+                                    <div>
+                                        <label className="text-xs text-stone-500 font-bold mb-1 block">質問</label>
+                                        <Input
+                                            value={item.question}
+                                            onChange={(e) => handleChange(item.id, 'question', e.target.value)}
+                                            placeholder="Q. 質問を入力"
+                                            className="font-bold bg-stone-50 border-stone-200"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="text-xs text-stone-500 font-bold mb-1 block">回答</label>
+                                        <Textarea
+                                            value={item.answer}
+                                            onChange={(e) => handleChange(item.id, 'answer', e.target.value)}
+                                            placeholder="A. 回答を入力"
+                                            className="min-h-[100px] bg-stone-50 border-stone-200"
+                                        />
+                                    </div>
+                                    <div className="flex justify-end pt-2 border-t border-stone-100">
+                                        <Button
+                                            variant="ghost"
+                                            size="sm"
+                                            onPointerDown={(e) => e.stopPropagation()}
                                             onClick={(e) => deleteItem(e, item.id)}
+                                            className="text-red-400 hover:text-red-500 hover:bg-red-50 text-xs h-8"
                                         >
-                                            ✕ 削除
-                                        </button>
+                                            削除する
+                                        </Button>
                                     </div>
                                 </div>
                             </SortableItem>

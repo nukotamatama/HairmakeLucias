@@ -68,6 +68,7 @@ export function SalonSpaceEditor() {
                     <div>
                         <Label>セクションタイトル</Label>
                         <Input
+                            className="bg-stone-50 border-stone-200"
                             value={data.title}
                             onChange={(e) => handleChange('title', e.target.value)}
                             placeholder="例: Salon Space"
@@ -76,7 +77,7 @@ export function SalonSpaceEditor() {
                     <div>
                         <Label>説明文</Label>
                         <Textarea
-                            className="h-32"
+                            className="h-32 bg-stone-50 border-stone-200"
                             value={data.description}
                             onChange={(e) => handleChange('description', e.target.value)}
                             placeholder="サロンの雰囲気についての説明文..."

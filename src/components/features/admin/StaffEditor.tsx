@@ -111,38 +111,61 @@ export function StaffEditor() {
                 >
                     <div className="grid grid-cols-1 gap-6">
                         {items && items.map((item) => (
-                            <SortableItem key={item.id} id={item.id} className="border p-6 rounded-lg bg-white flex flex-col md:flex-row gap-6 items-start">
-                                {/* Wrap the image (handle logic handled by SortableItem internal handle) or customized? */}
-                                {/* SortableItem has a handle on top-right. For Staff card which is flex row, absolute top-right works fine. */}
-
-                                <div className="relative w-32 h-32 md:w-40 md:h-40 bg-stone-100 rounded overflow-hidden group flex-shrink-0">
-                                    <Image src={item.image} alt={item.name} fill className="object-cover" />
-                                    <label className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer text-white text-xs text-center p-2">
-                                        画像を<br />変更
-                                        <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, item.id)} />
-                                    </label>
-                                </div>
-                                <div className="flex-1 space-y-4 w-full">
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <Input
-                                            value={item.role}
-                                            onChange={(e) => handleChange(item.id, 'role', e.target.value)}
-                                            placeholder="役職 (例: Top Stylist)"
-                                        />
-                                        <Input
-                                            value={item.name}
-                                            onChange={(e) => handleChange(item.id, 'name', e.target.value)}
-                                            placeholder="名前"
-                                        />
+                            <SortableItem key={item.id} id={item.id}>
+                                <div className="flex flex-col md:flex-row gap-6 p-4">
+                                    <div className="flex-shrink-0">
+                                        <label className="block text-xs text-stone-500 font-bold mb-1 ml-1">写真</label>
+                                        <div className="relative w-32 h-32 md:w-40 md:h-40 bg-stone-100 rounded-lg overflow-hidden group border border-stone-200 shadow-sm">
+                                            <Image src={item.image} alt={item.name} fill className="object-cover transition-transform group-hover:scale-105" />
+                                            <label className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center cursor-pointer text-white">
+                                                <span className="text-xs font-bold">画像を変更</span>
+                                                <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, item.id)} />
+                                            </label>
+                                        </div>
                                     </div>
-                                    <Textarea
-                                        value={item.message}
-                                        onChange={(e) => handleChange(item.id, 'message', e.target.value)}
-                                        placeholder="メッセージ"
-                                        className="h-24"
-                                    />
-                                    <div className="flex justify-end">
-                                        <button type="button" className="text-xs font-bold text-white bg-red-400 hover:bg-red-500 px-3 py-1.5 rounded shadow-sm transition-all cursor-pointer flex items-center gap-1" onClick={(e) => deleteItem(e, item.id)}>✕ 削除</button>
+
+                                    <div className="flex-1 space-y-4">
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <label className="text-xs text-stone-500 font-bold mb-1 block">役職</label>
+                                                <Input
+                                                    className="bg-stone-50 border-stone-200"
+                                                    value={item.role}
+                                                    onChange={(e) => handleChange(item.id, 'role', e.target.value)}
+                                                    placeholder="Role"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="text-xs text-stone-500 font-bold mb-1 block">名前</label>
+                                                <Input
+                                                    className="bg-stone-50 border-stone-200"
+                                                    value={item.name}
+                                                    onChange={(e) => handleChange(item.id, 'name', e.target.value)}
+                                                    placeholder="Name"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <label className="text-xs text-stone-500 font-bold mb-1 block">メッセージ</label>
+                                            <Textarea
+                                                value={item.message}
+                                                onChange={(e) => handleChange(item.id, 'message', e.target.value)}
+                                                placeholder="お客様へのメッセージ"
+                                                className="min-h-[100px] bg-stone-50 border-stone-200"
+                                            />
+                                        </div>
+
+                                        <div className="flex justify-end pt-2 border-t border-stone-100">
+                                            <Button
+                                                variant="ghost"
+                                                size="sm"
+                                                onClick={(e) => deleteItem(e, item.id)}
+                                                className="text-red-400 hover:text-red-500 hover:bg-red-50 text-xs h-8"
+                                            >
+                                                削除する
+                                            </Button>
+                                        </div>
                                     </div>
                                 </div>
                             </SortableItem>

@@ -38,7 +38,7 @@ export default async function DashboardPage() {
     return (
         <AdminProvider initialData={initialData}>
             <div className="min-h-screen bg-stone-50 p-4 md:p-8 pb-32">
-                <div className="max-w-5xl mx-auto space-y-8">
+                <div className="mx-auto space-y-8">
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                         <div>
                             <h1 className="font-serif text-2xl md:text-3xl text-stone-800">管理ダッシュボード</h1>

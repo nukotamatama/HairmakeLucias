@@ -127,7 +127,7 @@ export function SiteInfoEditor() {
                     <div>
                         <Label>タイトル</Label>
                         <Textarea
-                            className="min-h-[80px]"
+                            className="min-h-[80px] bg-stone-50 border-stone-200"
                             value={data.concept?.title || ""}
                             onChange={(e) => handleChange(['concept', 'title'], e.target.value)}
                             placeholder="改行を入れてレイアウトを調整できます"
@@ -136,7 +136,7 @@ export function SiteInfoEditor() {
                     <div>
                         <Label>サブタイトル</Label>
                         <Textarea
-                            className="min-h-[80px]"
+                            className="min-h-[80px] bg-stone-50 border-stone-200"
                             value={data.concept?.subtitle || ""}
                             onChange={(e) => handleChange(['concept', 'subtitle'], e.target.value)}
                             placeholder="改行を入れてレイアウトを調整できます"
@@ -144,7 +144,7 @@ export function SiteInfoEditor() {
                     </div>
                     <div>
                         <Label>説明文</Label>
-                        <Textarea className="h-40" value={data.concept?.description || ""} onChange={(e) => handleChange(['concept', 'description'], e.target.value)} />
+                        <Textarea className="h-40 bg-stone-50 border-stone-200" value={data.concept?.description || ""} onChange={(e) => handleChange(['concept', 'description'], e.target.value)} />
                     </div>
                 </CardContent>
             </Card>

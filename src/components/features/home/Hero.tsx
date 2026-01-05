@@ -19,10 +19,19 @@ export function Hero({ data, images = [] }: HeroProps) {
         offset: ["start start", "end start"]
     });
 
-    // Parallax effect
-    const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+    // Parallax effect - Reduced/Disabled on mobile to prevent jitter
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    const yBg = useTransform(scrollYProgress, [0, 1], isMobile ? ["0%", "0%"] : ["0%", "50%"]);
+    const textY = useTransform(scrollYProgress, [0, 1], isMobile ? ["0%", "0%"] : ["0%", "100%"]);
+    const opacity = useTransform(scrollYProgress, [0, 0.5], isMobile ? [1, 1] : [1, 0]);
 
     const title = data?.title ?? "静寂と、美しさ。";
     const subtitle = data?.subtitle ?? "日常に、洗練された余白を。";

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 type SalonSpaceData = {
     title: string;
@@ -17,9 +17,18 @@ export function SalonSpace({ data }: { data?: SalonSpaceData }) {
         offset: ["start end", "end start"]
     });
 
-    const y1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
-    const y2 = useTransform(scrollYProgress, [0, 1], [50, -50]);
-    const y3 = useTransform(scrollYProgress, [0, 1], [0, -100]);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    const y1 = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [0, -50]);
+    const y2 = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [50, -50]);
+    const y3 = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [0, -100]);
 
     // Fallbacks
     const title = data?.title ?? "Healing Moment";
