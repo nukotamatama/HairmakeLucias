@@ -36,7 +36,6 @@ export function DashboardClient({
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                         <div>
                             <h1 className="font-serif text-2xl md:text-3xl text-stone-800">管理ダッシュボード</h1>
-                            <p className="text-sm text-stone-500 mt-1">ログイン中: {userIdentifier}</p>
                         </div>
                         <div className="flex gap-4">
                             <Button variant="outline" asChild>
