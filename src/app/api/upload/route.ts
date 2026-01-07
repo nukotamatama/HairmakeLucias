@@ -14,6 +14,7 @@ export async function POST(request: Request): Promise<NextResponse> {
                 // if (!session) throw new Error('Unauthorized');
                 return {
                     allowedContentTypes: ['image/jpeg', 'image/png', 'image/gif', 'image/webp'],
+                    addRandomSuffix: true,
                     tokenPayload: JSON.stringify({}),
                 };
             },

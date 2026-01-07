@@ -55,8 +55,6 @@ export function StaffEditor() {
             const newBlob = await upload(file.name, file, {
                 access: 'public',
                 handleUploadUrl: '/api/upload',
-                // @ts-ignore
-                addRandomSuffix: true,
             });
             if (newBlob.url) {
                 setItems(items.map(item => item.id === id ? { ...item, image: newBlob.url } : item));
