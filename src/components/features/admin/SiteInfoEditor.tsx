@@ -45,7 +45,7 @@ export function SiteInfoEditor() {
         try {
             const res = await fetch("/api/upload", { method: "POST", body: formData });
             const result = await res.json();
-            if (result.success) {
+            if (result.url) {
                 if (id) {
                     // Replace existing
                     setHeroImages(heroImages.map(img => img.id === id ? { ...img, url: result.url } : img));

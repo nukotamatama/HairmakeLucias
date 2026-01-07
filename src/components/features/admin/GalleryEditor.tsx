@@ -56,7 +56,7 @@ export function GalleryEditor() {
         try {
             const res = await fetch("/api/upload", { method: "POST", body: formData });
             const data = await res.json();
-            if (data.success) {
+            if (data.url) {
                 setItems(items.map(item => item.id === id ? { ...item, image: data.url } : item));
             }
         } catch (e) {

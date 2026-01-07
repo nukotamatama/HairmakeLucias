@@ -48,7 +48,7 @@ export function SalonSpaceEditor() {
         try {
             const res = await fetch("/api/upload", { method: "POST", body: formData });
             const resData = await res.json();
-            if (resData.success) {
+            if (resData.url) {
                 handleImageChange(index, 'src', resData.url);
             }
         } catch (e) {
