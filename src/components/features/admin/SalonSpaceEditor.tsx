@@ -42,18 +42,21 @@ export function SalonSpaceEditor() {
         const file = e.target.files?.[0];
         if (!file) return;
 
-        const formData = new FormData();
-        formData.append("file", file);
-
         try {
-            const res = await fetch("/api/upload", { method: "POST", body: formData });
+            const res = await fetch(`/api/upload?filename=${encodeURIComponent(file.name)}`, {
+                method: "POST",
+                body: file,
+            });
             const resData = await res.json();
             if (resData.url) {
                 handleImageChange(index, 'src', resData.url);
+            } else {
+                console.error("Upload failed: No URL returned", resData);
+                alert("アップロードに失敗しました (URL取得不可)");
             }
         } catch (e) {
             console.error("Upload failed", e);
-            alert("アップロードに失敗しました");
+            alert("アップロードに失敗しました (通信エラー)");
         }
     };
 

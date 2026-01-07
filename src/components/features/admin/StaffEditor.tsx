@@ -50,14 +50,17 @@ export function StaffEditor() {
         const file = e.target.files?.[0];
         if (!file) return;
 
-        const formData = new FormData();
-        formData.append("file", file);
-
         try {
-            const res = await fetch("/api/upload", { method: "POST", body: formData });
+            const res = await fetch(`/api/upload?filename=${encodeURIComponent(file.name)}`, {
+                method: "POST",
+                body: file,
+            });
             const data = await res.json();
             if (data.url) {
                 setItems(items.map(item => item.id === id ? { ...item, image: data.url } : item));
+            } else {
+                console.error("Upload failed: No URL returned", data);
+                alert("アップロードに失敗しました (URL取得不可)");
             }
         } catch (e) {
             console.error(e);

@@ -39,11 +39,11 @@ export function SiteInfoEditor() {
         const file = e.target.files?.[0];
         if (!file) return;
 
-        const formData = new FormData();
-        formData.append("file", file);
-
         try {
-            const res = await fetch("/api/upload", { method: "POST", body: formData });
+            const res = await fetch(`/api/upload?filename=${encodeURIComponent(file.name)}`, {
+                method: "POST",
+                body: file,
+            });
             const result = await res.json();
             if (result.url) {
                 if (id) {
@@ -53,10 +53,13 @@ export function SiteInfoEditor() {
                     // Add new
                     setHeroImages([...heroImages, { id: crypto.randomUUID(), url: result.url }]);
                 }
+            } else {
+                console.error("Upload failed: No URL returned", result);
+                alert("アップロードに失敗しました (URL取得不可)");
             }
         } catch (e) {
             console.error("Upload failed", e);
-            alert("アップロードに失敗しました");
+            alert("アップロードに失敗しました (通信エラー)");
         }
     };
 
